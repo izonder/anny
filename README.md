@@ -2,6 +2,10 @@
 
 **ANNY** = **A**lpine + **N**ginx + **N**ode.js + **Y**arn
 
+[![Build Status](https://travis-ci.org/izonder/anny.svg?branch=master)](https://travis-ci.org/izonder/anny)
+[![](https://images.microbadger.com/badges/version/izonder/anny.svg)](https://microbadger.com/images/izonder/anny "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/izonder/anny.svg)](https://microbadger.com/images/izonder/anny "Get your own image badge on microbadger.com")
+
 ## Features
 
 - Alpine linux as base-image
