@@ -12,3 +12,6 @@ before_install:
 script:
   - docker run -it --rm izonder/anny node -v
   - docker run -it --rm izonder/anny yarn --version
+
+after_success:
+  - curl -X POST https://registry.hub.docker.com/u/izonder/anny/trigger/$DOCKER_TRIGGER_TOKEN/
