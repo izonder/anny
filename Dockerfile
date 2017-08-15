@@ -3,7 +3,7 @@ FROM alpine:3.4
 MAINTAINER Dmitry Morgachev <izonder@gmail.com>
 
 ENV S6_VERSION=v1.19.1.1 \
-    NODE_VERSION=v6.11.0 \
+    NODE_VERSION=v6.11.2 \
     NODE_PREFIX=/usr \
     YARN_VERSION=v0.27.5 \
     YARN_PREFIX=/usr/share/yarn \
