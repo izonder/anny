@@ -1,11 +1,11 @@
-FROM alpine:3.4
+FROM alpine:3.6
 
 MAINTAINER Dmitry Morgachev <izonder@gmail.com>
 
-ENV S6_VERSION=v1.19.1.1 \
-    NODE_VERSION=v6.11.2 \
+ENV S6_VERSION=v1.20.0.0 \
+    NODE_VERSION=v8.4.0 \
     NODE_PREFIX=/usr \
-    YARN_VERSION=v0.27.5 \
+    YARN_VERSION=v1.0.1 \
     YARN_PREFIX=/usr/share/yarn \
     YARN_BINARY=/usr/bin
 
@@ -51,10 +51,12 @@ RUN set -x \
 ##############################################################################
 # Install Node
 # Based on https://github.com/mhart/alpine-node/blob/master/Dockerfile (thank you)
+# Note: we use ipv4.pool.sks-keyservers.net instead of ha.pool.sks-keyservers.net
+# due to the issue: https://bugs.launchpad.net/ubuntu/+source/gnupg2/+bug/1625845
 ##############################################################################
 
     # Download and validate the NodeJs source
-    && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys \
+    && gpg --keyserver ipv4.pool.sks-keyservers.net --recv-keys \
         9554F04D7259F04124DE6B476D5A82AC7E37093B \
         94AE36675C464D64BAFA68DD7434390BDBE9B9C5 \
         0034A06D9D9B0064CE8ADF6BF1747F4AD2306D93 \
@@ -87,13 +89,11 @@ RUN set -x \
 # Install yarn
 ##############################################################################
 
-    && mkdir /tmp/yarn-${YARN_VERSION} \
     && curl -o /tmp/yarn-${YARN_VERSION}.tar.gz -sSL https://github.com/yarnpkg/yarn/releases/download/${YARN_VERSION}/yarn-${YARN_VERSION}.tar.gz \
-    && tar -zxf /tmp/yarn-${YARN_VERSION}.tar.gz -C /tmp/yarn-${YARN_VERSION} \
-    && mv -f /tmp/yarn-${YARN_VERSION}/dist ${YARN_PREFIX} \
-    && sed -i "s|^basedir=.*$|basedir=${YARN_PREFIX}/bin|" ${YARN_PREFIX}/bin/yarn \
+    && tar -zxf /tmp/yarn-${YARN_VERSION}.tar.gz -C /tmp \
+    && mv -f /tmp/yarn-${YARN_VERSION} ${YARN_PREFIX} \
     && ln -sf ${YARN_PREFIX}/bin/yarn ${YARN_BINARY}/yarn \
-    && ln -sf ${YARN_PREFIX}/bin/yarn ${YARN_BINARY}/yarnpkg \
+    && ln -sf ${YARN_PREFIX}/bin/yarnpkg ${YARN_BINARY}/yarnpkg \
 
 ##############################################################################
 # Clean up
