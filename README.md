@@ -6,6 +6,18 @@
 [![](https://images.microbadger.com/badges/image/izonder/anny.svg)](https://microbadger.com/images/izonder/anny "Get your own image badge on microbadger.com")
 [![Build Status](https://travis-ci.org/izonder/anny.svg?branch=master)](https://travis-ci.org/izonder/anny)
 
+## IMPORTANT! Breaking changes announcement
+
+Due to Node.js LTS schedule we are planning to release major upgrade, which contains:
+- Alpine Linux v.3.6.x
+- Node.js v.8.x.x
+- Yarn v.1.x.x (stable)
+- S6-overlay v.1.20.x.x
+
+Please be aware of that and make sure these changes won't affect your functionality.
+
+**Disclaimer:** we are **NOT** going to maintain different versions/tags of ANNY, the only _"latest"_ will exist. If you need legacy one please feel free to fork and tune the package up to you.
+
 ## Features
 
 - Alpine linux as base-image
