@@ -115,6 +115,7 @@ RUN set -x \
         /node_src \
         /tmp/* \
         /var/cache/apk/* \
+        /etc/nginx/conf.d/* \
         ${NODE_PREFIX}/share/man \
         ${NODE_PREFIX}/lib/node_modules \
         ${NODE_PREFIX}/include
