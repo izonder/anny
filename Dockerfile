@@ -3,9 +3,9 @@ FROM alpine:3.4
 MAINTAINER Dmitry Morgachev <izonder@gmail.com>
 
 ENV S6_VERSION=v1.20.0.0 \
-    NODE_VERSION=v6.11.3 \
+    NODE_VERSION=v6.11.4 \
     NODE_PREFIX=/usr \
-    YARN_VERSION=v1.1.0 \
+    YARN_VERSION=v1.2.1 \
     YARN_PREFIX=/usr/share/yarn \
     YARN_BINARY=/usr/bin
 
