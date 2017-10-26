@@ -8,15 +8,15 @@
 
 ## IMPORTANT! Breaking changes announcement
 
-Due to Node.js LTS schedule we are planning to release major upgrade, which contains:
+Due to [Node.js LTS schedule](https://github.com/nodejs/Release) we have released major upgrade, which contains:
 - Alpine Linux v.3.6.x
 - Node.js v.8.x.x
 - Yarn v.1.x.x (stable)
 - S6-overlay v.1.20.x.x
 
-Please be aware of that and make sure these changes won't affect your functionality.
+Please make sure these changes won't affect your functionality. Also be aware the children images [`izonder/janny`](https://hub.docker.com/r/izonder/janny/) and  [`izonder/lanny`](https://hub.docker.com/r/izonder/lanny/) are also rebuilt based on `izonder/anny:latest`.  
 
-**Disclaimer:** we are **NOT** going to maintain different versions/tags of ANNY, the only _"latest"_ will exist. If you need legacy one please feel free to fork and tune the package up to you.
+If you still need `izonder/anny` based on Node.js v6.x.x use the image `izonser/anny:6` instead of `latest`.
 
 ## Features
 
