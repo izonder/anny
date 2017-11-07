@@ -5,7 +5,7 @@ MAINTAINER Dmitry Morgachev <izonder@gmail.com>
 ENV S6_VERSION=v1.20.0.0 \
     NODE_VERSION=v6.11.5 \
     NODE_PREFIX=/usr \
-    YARN_VERSION=v1.2.1 \
+    YARN_VERSION=v1.3.2 \
     YARN_PREFIX=/usr/share/yarn \
     YARN_BINARY=/usr/bin
 
