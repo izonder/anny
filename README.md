@@ -16,7 +16,7 @@ Due to [Node.js LTS schedule](https://github.com/nodejs/Release) we have release
 
 Please make sure these changes won't affect your functionality. Also be aware the children images [`izonder/janny`](https://hub.docker.com/r/izonder/janny/) and  [`izonder/lanny`](https://hub.docker.com/r/izonder/lanny/) are also rebuilt based on `izonder/anny:latest`.  
 
-If you still need `izonder/anny` based on Node.js v6.x.x use the image `izonser/anny:6` instead of `latest`.
+If you still need `izonder/anny` based on Node.js v6.x.x use the image `izonder/anny:6` instead of `latest`.
 
 ## Features
 
