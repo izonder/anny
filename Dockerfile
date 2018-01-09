@@ -2,8 +2,8 @@ FROM alpine:3.6
 
 MAINTAINER Dmitry Morgachev <izonder@gmail.com>
 
-ENV S6_VERSION=v1.21.2.1 \
-    NODE_VERSION=v8.9.3 \
+ENV S6_VERSION=v1.21.2.2 \
+    NODE_VERSION=v8.9.4 \
     NODE_PREFIX=/usr \
     YARN_VERSION=v1.3.2 \
     YARN_PREFIX=/usr/share/yarn \
