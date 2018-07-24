@@ -4,9 +4,9 @@
 
 [![](https://images.microbadger.com/badges/version/izonder/anny.svg)](https://microbadger.com/images/izonder/anny "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/image/izonder/anny.svg)](https://microbadger.com/images/izonder/anny "Get your own image badge on microbadger.com")
-[![Build Status](https://travis-ci.org/izonder/anny.svg?branch=master)](https://travis-ci.org/izonder/anny)
+[![Build Status](https://travis-ci.org/izonder/anny.svg?branch=nodejs-8)](https://travis-ci.org/izonder/anny)
 
-## IMPORTANT! Breaking changes announcement
+## Breaking changes
 
 Due to [Node.js LTS schedule](https://github.com/nodejs/Release) we have released major upgrade, which contains:
 - Alpine Linux v.3.6.x
@@ -16,7 +16,11 @@ Due to [Node.js LTS schedule](https://github.com/nodejs/Release) we have release
 
 Please make sure these changes won't affect your functionality. Also be aware the children images [`izonder/janny`](https://hub.docker.com/r/izonder/janny/) and  [`izonder/lanny`](https://hub.docker.com/r/izonder/lanny/) are also rebuilt based on `izonder/anny:latest`.  
 
-If you still need `izonder/anny` based on Node.js v6.x.x use the image `izonder/anny:6` instead of `latest`.
+## Supported tags and respective `Dockerfile` links
+- `latest` [(Dockerfile)](https://github.com/izonder/anny/blob/master/Dockerfile)
+- `10` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-10/Dockerfile)
+- `8` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-8/Dockerfile)
+- `6` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-6/Dockerfile)
 
 ## Features
 

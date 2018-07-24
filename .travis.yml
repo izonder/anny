@@ -16,4 +16,4 @@ script:
 
 after_success:
   - >
-    curl -H 'Content-Type: application/json' --data '{"source_type": "Branch", "source_name": "master"}' -X POST https://registry.hub.docker.com/u/izonder/anny/trigger/$DOCKER_TRIGGER_TOKEN/
+    curl -H 'Content-Type: application/json' --data '{"source_type": "Branch", "source_name": "nodejs-8"}' -X POST https://registry.hub.docker.com/u/izonder/anny/trigger/$DOCKER_TRIGGER_TOKEN/
