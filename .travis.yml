@@ -15,5 +15,6 @@ script:
   - docker run -it --rm izonder/anny yarn global add npm
 
 after_success:
-  - >
-    curl -H 'Content-Type: application/json' --data '{"source_type": "Branch", "source_name": "nodejs-10"}' -X POST https://registry.hub.docker.com/u/izonder/anny/trigger/$DOCKER_TRIGGER_TOKEN/
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker tag izonder/anny izonder/anny:10
+  - docker push izonder/anny:10
