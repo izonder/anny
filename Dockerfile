@@ -1,11 +1,11 @@
-FROM alpine:3.6
+FROM alpine:3.8
 
 MAINTAINER Dmitry Morgachev <izonder@gmail.com>
 
 ENV S6_VERSION=v1.21.7.0 \
-    NODE_VERSION=v8.12.0 \
+    NODE_VERSION=v10.13.0 \
     NODE_PREFIX=/usr \
-    YARN_VERSION=v1.9.4 \
+    YARN_VERSION=v1.12.1 \
     YARN_PREFIX=/usr/share/yarn \
     YARN_BINARY=/usr/bin
 
@@ -65,6 +65,8 @@ RUN set -x \
         B9AE9905FFD7803F25714661B63B535A4C206CA9 \
         56730D5401028683275BD23C23EFEFE93C4CFFFE \
         77984A986EBC2AA786BC0F66B01FBB92821C587A \
+        77984A986EBC2AA786BC0F66B01FBB92821C587A \
+        8FCCA13FEF1D0C2E91008E09770F7A9A5AE15600 \
     && mkdir /node_src \
     && cd /node_src \
     && curl -o node-${NODE_VERSION}.tar.gz -sSL https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz \
