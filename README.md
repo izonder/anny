@@ -2,8 +2,8 @@
 
 **ANNY** = **A**lpine + **N**ginx + **N**ode.js + **Y**arn
 
-[![](https://images.microbadger.com/badges/version/izonder/anny.svg)](https://microbadger.com/images/izonder/anny "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/izonder/anny.svg)](https://microbadger.com/images/izonder/anny "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/izonder/anny:10.svg)](https://microbadger.com/images/izonder/anny:10 "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/izonder/anny:10.svg)](https://microbadger.com/images/izonder/anny:10 "Get your own image badge on microbadger.com")
 [![Build Status](https://travis-ci.org/izonder/anny.svg?branch=nodejs-10)](https://travis-ci.org/izonder/anny)
 
 ## Breaking changes
