@@ -21,17 +21,15 @@ RUN set -x \
 # Install dependencies
 ##############################################################################
 
-    && apk add --no-cache \
-        ca-certificates \
+    && apk add --no-cache libstdc++ \
+    && apk add --no-cache --virtual .build-deps \
+        binutils-gold \
         curl \
         g++ \
         gcc \
         gnupg \
-        libgcc \
-        libstdc++ \
         linux-headers \
         make \
-        paxctl \
         python \
 
 ##############################################################################
@@ -79,20 +77,19 @@ RUN set -x \
     && cd /node_src \
     && tar -zxf node-${NODE_VERSION}.tar.gz \
     && cd node-${NODE_VERSION} \
-    && export GYP_DEFINES="linux_use_gold_flags=0" \
-    && ./configure --prefix=${NODE_PREFIX} --without-npm --fully-static \
-    && NPROC=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) \
-    && make -j${NPROC} -C out mksnapshot BUILDTYPE=Release \
-    && paxctl -cm out/Release/mksnapshot \
-    && make -j${NPROC} \
+    && ./configure --prefix=${NODE_PREFIX} --without-npm \
+    && make -j$(getconf _NPROCESSORS_ONLN) \
     && make install \
-    && paxctl -cm ${NODE_PREFIX}/bin/node \
 
 ##############################################################################
 # Install yarn
 ##############################################################################
 
+    && gpg --keyserver ipv4.pool.sks-keyservers.net --recv-keys \
+            6A010C5166006599AA17F08146C2130DFD2497F5 \
     && curl -o /tmp/yarn-${YARN_VERSION}.tar.gz -sSL https://github.com/yarnpkg/yarn/releases/download/${YARN_VERSION}/yarn-${YARN_VERSION}.tar.gz \
+    && curl -o /tmp/yarn-${YARN_VERSION}.tar.gz.asc -sSL https://github.com/yarnpkg/yarn/releases/download/${YARN_VERSION}/yarn-${YARN_VERSION}.tar.gz.asc \
+    && gpg --verify /tmp/yarn-${YARN_VERSION}.tar.gz.asc \
     && tar -zxf /tmp/yarn-${YARN_VERSION}.tar.gz -C /tmp \
     && mv -f /tmp/yarn-${YARN_VERSION} ${YARN_PREFIX} \
     && ln -sf ${YARN_PREFIX}/bin/yarn ${YARN_BINARY}/yarn \
@@ -102,26 +99,13 @@ RUN set -x \
 # Clean up
 ##############################################################################
 
-    && apk del \
-        curl \
-        g++ \
-        gcc \
-        gnupg \
-        libgcc \
-        libstdc++ \
-        linux-headers \
-        make \
-        paxctl \
-        python \
-
+    && apk del .build-deps \
     && rm -rf \
         /node_src \
         /tmp/* \
         /var/cache/apk/* \
         /etc/nginx/conf.d/* \
-        ${NODE_PREFIX}/share/man \
-        ${NODE_PREFIX}/lib/node_modules \
-        ${NODE_PREFIX}/include
+        /usr/share/man
 
 ##############################################################################
 # Configs and init scripts
