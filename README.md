@@ -28,7 +28,7 @@ Please make sure these changes won't affect your functionality. Also be aware th
 - Alpine linux as base-image
 - S6-overlay to run multiple processes in container
 - Nginx with basic configuration
-- Node.js (fully-static without NPM)
+- Node.js (without NPM)
 - Yarn package manager
 
 ## How to use?
