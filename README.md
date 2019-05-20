@@ -2,15 +2,15 @@
 
 **ANNY** = **A**lpine + **N**ginx + **N**ode.js + **Y**arn
 
-[![](https://images.microbadger.com/badges/version/izonder/anny:10.svg)](https://microbadger.com/images/izonder/anny:10 "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/izonder/anny:10.svg)](https://microbadger.com/images/izonder/anny:10 "Get your own image badge on microbadger.com")
-[![Build Status](https://travis-ci.org/izonder/anny.svg?branch=nodejs-10)](https://travis-ci.org/izonder/anny)
+[![](https://images.microbadger.com/badges/version/izonder/anny:12.svg)](https://microbadger.com/images/izonder/anny:12 "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/izonder/anny:12.svg)](https://microbadger.com/images/izonder/anny:12 "Get your own image badge on microbadger.com")
+[![Build Status](https://travis-ci.org/izonder/anny.svg?branch=nodejs-12)](https://travis-ci.org/izonder/anny)
 
 ## Breaking changes
 
 Due to [Node.js LTS schedule](https://github.com/nodejs/Release) we have released major upgrade, which contains:
-- Alpine Linux v3.8.x
-- Node.js v10.x.x
+- Alpine Linux v3.9.x
+- Node.js v12.x.x
 - Yarn v1.x.x
 - S6-overlay v1.20.x.x
 - Nginx v1.14.x
@@ -19,6 +19,7 @@ Please make sure these changes won't affect your functionality. Also be aware th
 
 ## Supported tags and respective `Dockerfile` links
 - `latest` [(Dockerfile)](https://github.com/izonder/anny/blob/master/Dockerfile)
+- `12` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-12/Dockerfile)
 - `10` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-10/Dockerfile)
 - `8` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-8/Dockerfile)
 - `6` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-6/Dockerfile)
