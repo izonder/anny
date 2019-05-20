@@ -19,6 +19,7 @@ Please make sure these changes won't affect your functionality. Also be aware th
 
 ## Supported tags and respective `Dockerfile` links
 - `latest` [(Dockerfile)](https://github.com/izonder/anny/blob/master/Dockerfile)
+- `12` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-12/Dockerfile)
 - `10` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-10/Dockerfile)
 - `8` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-8/Dockerfile)
 - `6` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-6/Dockerfile)
