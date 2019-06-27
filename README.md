@@ -9,11 +9,11 @@
 ## Breaking changes
 
 Due to [Node.js LTS schedule](https://github.com/nodejs/Release) we have released major upgrade, which contains:
-- Alpine Linux v3.9.x
+- Alpine Linux v3.10.x
 - Node.js v12.x.x
 - Yarn v1.x.x
 - S6-overlay v1.20.x.x
-- Nginx v1.14.x
+- Nginx v1.16.x
 
 Please make sure these changes won't affect your functionality. Also be aware the children images [`izonder/janny`](https://hub.docker.com/r/izonder/janny/) and  [`izonder/lanny`](https://hub.docker.com/r/izonder/lanny/) are also rebuilt based on `izonder/anny:latest`.  
 
