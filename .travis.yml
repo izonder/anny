@@ -7,7 +7,7 @@ services:
 
 before_install:
   - docker info
-  - docker build --no-cache -t izonder/anny .
+  - docker build --no-cache --pull -t izonder/anny .
 
 script:
   - docker run -it --rm izonder/anny node -v
