@@ -30,7 +30,7 @@ RUN set -x \
         gnupg \
         linux-headers \
         make \
-        python \
+        python3 \
 
 ##############################################################################
 # Install S6-overlay
