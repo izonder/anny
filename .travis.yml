@@ -7,6 +7,7 @@ services:
 
 before_install:
   - docker info
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build --no-cache --pull -t izonder/anny .
 
 script:
@@ -15,6 +16,5 @@ script:
   - docker run -it --rm izonder/anny yarn global add npm
 
 after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker tag izonder/anny izonder/anny:latest
   - docker push izonder/anny:latest
