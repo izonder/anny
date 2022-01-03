@@ -2,8 +2,8 @@ FROM alpine:3.12
 
 MAINTAINER Dmitry Morgachev <izonder@gmail.com>
 
-ENV S6_VERSION=v2.1.0.2 \
-    NODE_VERSION=v14.15.4 \
+ENV S6_VERSION=v2.2.0.1 \
+    NODE_VERSION=v14.18.2 \
     NODE_PREFIX=/usr \
     YARN_VERSION=v1.22.5 \
     YARN_PREFIX=/usr/share/yarn \
@@ -55,9 +55,8 @@ RUN set -x \
 
     # gpg keys listed at https://github.com/nodejs/node#release-keys
     && for server in \
-        ipv4.pool.sks-keyservers.net \
-        keyserver.pgp.com \
-        ha.pool.sks-keyservers.net \
+        keyserver.ubuntu.com \
+        keys.openpgp.org \
     ; do \
         gpg --keyserver $server --recv-keys \
             4ED778F539E3634C779C87C6D7062848A1AB005C \
@@ -95,9 +94,8 @@ RUN set -x \
 ##############################################################################
 
     && for server in \
-       ipv4.pool.sks-keyservers.net \
-       keyserver.pgp.com \
-       ha.pool.sks-keyservers.net \
+       keyserver.ubuntu.com \
+       keys.openpgp.org \
    ; do \
        gpg --keyserver $server --recv-keys \
             6A010C5166006599AA17F08146C2130DFD2497F5 \
