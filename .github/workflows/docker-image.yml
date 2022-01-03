@@ -1,0 +1,27 @@
+name: Build Docker Image
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: |
+          docker info
+          docker build --no-cache --pull -t izonder/anny .
+      - name: Test the image
+        run: |
+          docker run --rm izonder/anny node -v
+          docker run --rm izonder/anny yarn --version
+          docker run --rm izonder/anny yarn global add npm
+      - name: Assign the tag
+        run: docker tag izonder/anny izonder/anny:14
+      - name: Publish the image
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+          docker push izonder/anny:14
