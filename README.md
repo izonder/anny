@@ -2,8 +2,6 @@
 
 **ANNY** = **A**lpine + **N**ginx + **N**ode.js + **Y**arn
 
-[![](https://images.microbadger.com/badges/version/izonder/anny:14.svg)](https://microbadger.com/images/izonder/anny:14 "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/image/izonder/anny:14.svg)](https://microbadger.com/images/izonder/anny:14 "Get your own image badge on microbadger.com")
 [![Build Docker image](https://github.com/izonder/anny/actions/workflows/docker-image.yml/badge.svg?branch=nodejs-14)](https://github.com/izonder/anny/actions/workflows/docker-image.yml)
 
 ## Breaking changes
