@@ -5,11 +5,11 @@ FROM alpine:3.14
 
 MAINTAINER Dmitry Morgachev <izonder@gmail.com>
 
-ENV S6_VERSION=v2.2.0.1 \
-    NODE_VERSION=v16.13.1 \
+ENV S6_VERSION=v2.2.0.3 \
+    NODE_VERSION=v16.20.0 \
     NODE_PREFIX=/usr \
     NODE_RELEASE_KEYS=https://raw.githubusercontent.com/nodejs/release-keys/HEAD \
-    YARN_VERSION=v1.22.17 \
+    YARN_VERSION=v1.22.19 \
     YARN_PREFIX=/usr/share/yarn \
     YARN_BINARY=/usr/bin
 
