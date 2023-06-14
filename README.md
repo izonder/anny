@@ -2,21 +2,22 @@
 
 **ANNY** = **A**lpine + **N**ginx + **N**ode.js + **Y**arn
 
-[![Build Docker image](https://github.com/izonder/anny/actions/workflows/docker-image.yml/badge.svg?branch=nodejs-16)](https://github.com/izonder/anny/actions/workflows/docker-image.yml)
+[![Build Docker image](https://github.com/izonder/anny/actions/workflows/docker-image.yml/badge.svg?branch=nodejs-18)](https://github.com/izonder/anny/actions/workflows/docker-image.yml)
 
 ## Breaking changes
 
 Due to [Node.js LTS schedule](https://github.com/nodejs/Release) we have released major upgrade, which contains:
-- Alpine Linux v3.14.x
-- Node.js v16.x.x
+- Alpine Linux v3.18.x
+- Node.js v18.x.x
 - Yarn v1.x.x
-- S6-overlay v2.2.x.x
+- S6-overlay v3.1.x.x
 - Nginx v1.20.x
 
 Please make sure these changes won't affect your functionality. Also be aware the children images [`izonder/janny`](https://hub.docker.com/r/izonder/janny/) and  [`izonder/lanny`](https://hub.docker.com/r/izonder/lanny/) are also rebuilt based on `izonder/anny:latest`.
 
 ## Supported tags and respective `Dockerfile` links
 - `latest` [(Dockerfile)](https://github.com/izonder/anny/blob/master/Dockerfile)
+- `18` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-18/Dockerfile)
 - `16` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-16/Dockerfile)
 - `14` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-14/Dockerfile)
 - `12` [(Dockerfile)](https://github.com/izonder/anny/blob/nodejs-12/Dockerfile)
