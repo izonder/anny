@@ -11,7 +11,7 @@ Due to [Node.js LTS schedule](https://github.com/nodejs/Release) we have release
 - Node.js v18.x.x
 - Yarn v1.x.x
 - S6-overlay v3.1.x.x
-- Nginx v1.20.x
+- Nginx v1.24.x
 
 Please make sure these changes won't affect your functionality. Also be aware the children images [`izonder/janny`](https://hub.docker.com/r/izonder/janny/) and  [`izonder/lanny`](https://hub.docker.com/r/izonder/lanny/) are also rebuilt based on `izonder/anny:latest`.
 
