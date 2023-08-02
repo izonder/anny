@@ -1,12 +1,11 @@
-# IMPORTANT! Alpine 3.14 requires having Docker 20.10+
-# Original issue: https://github.com/alpinelinux/docker-alpine/issues/182
-# Release notes: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.14.0#faccessat2
-FROM alpine:3.14
+# IMPORTANT! Alpine 3.18 requires having Docker 23+
+# Release notes: https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.18.0#Docker_23
+FROM alpine:3.18
 
 MAINTAINER Dmitry Morgachev <izonder@gmail.com>
 
-ENV S6_VERSION=v2.2.0.3 \
-    NODE_VERSION=v16.20.0 \
+ENV S6_VERSION=v3.1.5.0 \
+    NODE_VERSION=v18.16.0 \
     NODE_PREFIX=/usr \
     NODE_RELEASE_KEYS=https://raw.githubusercontent.com/nodejs/release-keys/HEAD \
     YARN_VERSION=v1.22.19 \
@@ -38,13 +37,16 @@ RUN set -eux \
         linux-headers \
         make \
         python3 \
+        xz \
 \
 ##############################################################################
 # Install S6-overlay
 ##############################################################################
 \
-    && curl -o /tmp/s6-overlay-amd64.tar.gz -sSL https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-amd64.tar.gz \
-    && tar -zxf /tmp/s6-overlay-amd64.tar.gz -C / \
+    && curl -o /tmp/s6-overlay-noarch.tar.xz -sSL https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-noarch.tar.xz \
+    && tar -Jxpf /tmp/s6-overlay-noarch.tar.xz -C / \
+    && curl -o /tmp/s6-overlay-x86_64.tar.xz -sSL https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-x86_64.tar.xz \
+    && tar -Jxpf /tmp/s6-overlay-x86_64.tar.xz -C / \
 \
 ##############################################################################
 # Install Nginx
@@ -67,14 +69,14 @@ RUN set -eux \
     # Download and validate the NodeJs source
     && mkdir /node_src \
     && cd /node_src \
-    && curl -o node-${NODE_VERSION}.tar.gz -sSL https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz \
-    && curl -o SHASUMS256.txt.asc -sSL https://nodejs.org/dist/${NODE_VERSION}/SHASUMS256.txt.asc \
-    && gpg --verify SHASUMS256.txt.asc \
-    && grep node-${NODE_VERSION}.tar.gz SHASUMS256.txt.asc | sha256sum -c - \
+    && curl -o node-${NODE_VERSION}.tar.xz -fsSLO --compressed https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.xz \
+    && curl -o SHASUMS256.txt.asc -fsSLO --compressed https://nodejs.org/dist/${NODE_VERSION}/SHASUMS256.txt.asc \
+    && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
+    && grep " node-${NODE_VERSION}.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
 \
     # Compile and install
     && cd /node_src \
-    && tar -zxf node-${NODE_VERSION}.tar.gz \
+    && tar -Jxpf node-${NODE_VERSION}.tar.xz \
     && cd node-${NODE_VERSION} \
     && ./configure --prefix=${NODE_PREFIX} --without-npm \
     && make -j$(getconf _NPROCESSORS_ONLN) V= \
@@ -119,7 +121,7 @@ RUN set -eux \
 ##############################################################################
 
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY ./service/* /etc/services.d/*
+COPY ./service/ /etc/services.d/
 
 EXPOSE 80 443 3000
 ENTRYPOINT ["/init"]
