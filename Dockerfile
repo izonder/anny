@@ -5,7 +5,7 @@ FROM alpine:3.18
 MAINTAINER Dmitry Morgachev <izonder@gmail.com>
 
 ENV S6_VERSION=v3.1.5.0 \
-    NODE_VERSION=v18.16.0 \
+    NODE_VERSION=v18.17.1 \
     NODE_PREFIX=/usr \
     NODE_RELEASE_KEYS=https://raw.githubusercontent.com/nodejs/release-keys/HEAD \
     YARN_VERSION=v1.22.19 \
