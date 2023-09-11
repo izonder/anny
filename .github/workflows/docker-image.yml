@@ -37,7 +37,6 @@ jobs:
         run: |
           docker run --rm ${{ env.TEST_TAG }} node -v
           docker run --rm ${{ env.TEST_TAG }} yarn --version
-          docker run --rm ${{ env.TEST_TAG }} yarn global add npm
       -
         name: Build and push
         uses: docker/build-push-action@v4
